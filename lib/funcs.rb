@@ -21,13 +21,3 @@
 #  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 #  DEALINGS IN THE SOFTWARE.
 #
-
-require 'sinatra'
-
-require './lib/funcs'
-
-# release route with optional version number
-get '/:user/:repo/?:version?' do
-  "#{params[:user]} #{params[:repo]} #{params[:version]}" 
-end
-
