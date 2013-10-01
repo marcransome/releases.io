@@ -23,11 +23,21 @@
 #
 
 require 'sinatra'
+require 'haml'
 
 require './lib/funcs'
 
+
 # release route with optional version number
 get '/:user/:repo/?:version?' do
-  "#{params[:user]} #{params[:repo]} #{params[:version]}" 
 end
 
+__END__
+
+@@ index
+!!!
+%html
+    %head
+        %title test
+    %body
+        Test
