@@ -24,12 +24,13 @@
 
 require 'sinatra'
 require 'haml'
+require 'json'
 
 require './lib/funcs'
 
-
 # release route with optional version number
 get '/:user/:repo/?:version?' do
+    get_notes(params[:user], params[:repo], params[:version], params[:format])
 end
 
 __END__
