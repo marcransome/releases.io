@@ -28,9 +28,10 @@ require 'json'
 
 require './lib/funcs'
 
-# release route with optional version number
-get '/:user/:repo/?:version?' do
-    get_notes(params[:user], params[:repo], params[:version], params[:format])
+# release route
+get '/:user/:repo/:version' do
+    content_type :text, 'charset' => 'utf-8'
+    get_notes(params[:user], params[:repo], params[:version]) 
 end
 
 __END__

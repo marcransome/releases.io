@@ -22,13 +22,14 @@
 #  DEALINGS IN THE SOFTWARE.
 #
 
-def get_notes(user, repo, version, format)
+def get_notes(user, repo, version)
     base_url = "https://api.github.com/repos/#{user}/#{repo}/releases"
     uri = URI(base_url)
     
     Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         request = Net::HTTP::Get.new uri
         request.add_field 'Accept', 'application/vnd.github.manifold-preview'
+        request.add_field 'Authorization', "token #{ENV['GITHUB_AUTH_TOKEN']}"
         response = http.request request
         json = JSON.parse(response.body)
 
