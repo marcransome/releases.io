@@ -25,6 +25,7 @@
 require 'sinatra'
 require 'haml'
 require 'json'
+require 'net/http'
 
 require './lib/funcs'
 
