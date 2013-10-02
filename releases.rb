@@ -29,6 +29,10 @@ require 'net/http'
 
 require './lib/funcs'
 
+configure :production do
+    require 'newrelic_rpm'
+end
+
 # release route
 get '/:user/:repo/:version' do
     content_type :text, 'charset' => 'utf-8'
