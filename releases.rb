@@ -33,6 +33,12 @@ configure :production do
     require 'newrelic_rpm'
 end
 
+# status for availability monitoring
+get '/' do
+    content_type 'application/json'
+    {:status => 'running'}.to_json
+end
+
 # release route
 get '/:user/:repo/:version' do
     content_type :text, 'charset' => 'utf-8'
