@@ -31,6 +31,11 @@ def get_notes(user, repo, version)
         request.add_field 'Authorization', "token #{ENV['GITHUB_AUTH_TOKEN']}"
 
         response = http.request(request)
+
+        if not response.kind_of? Net::HTTPSuccess
+             return nil
+        end
+
         json = JSON.parse(response.body)
 
         json.each do |release|
@@ -38,5 +43,7 @@ def get_notes(user, repo, version)
                 return release["body"]
             end
         end
+
+        return nil
     end
 end

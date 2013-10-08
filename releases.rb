@@ -26,6 +26,7 @@ require 'sinatra'
 require 'haml'
 require 'json'
 require 'net/http'
+require 'redcarpet'
 
 require './lib/funcs'
 
@@ -41,16 +42,40 @@ end
 
 # release route
 get '/:user/:repo/:version' do
-    content_type :text, 'charset' => 'utf-8'
-    get_notes(params[:user], params[:repo], params[:version]) 
+
+    if params[:format].nil?
+
+        notes = get_notes(params[:user], params[:repo], params[:version])
+
+        return 404 if notes.nil?
+
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+        rendered_notes = markdown.render(notes)
+
+        haml rendered_notes, :locals => { :repo => params[:repo], :version => params[:version] }
+
+    elsif params[:format].eql? "markdown"
+        content_type :text, 'charset' => 'utf-8'
+        notes = get_notes(params[:user], params[:repo], params[:version])
+
+        if notes.nil?
+            return 404
+        else
+            return notes
+        end
+    end
+end
+
+get '/*' do
+    404
 end
 
 __END__
 
-@@ index
+@@ layout
 !!!
 %html
     %head
-        %title test
+        %title= "#{repo} #{version}"
     %body
-        Test
+        = yield
