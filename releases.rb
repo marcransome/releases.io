@@ -52,7 +52,7 @@ get '/:user/:repo/:version' do
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
         rendered_notes = markdown.render(notes)
 
-        haml rendered_notes, :locals => { :repo => params[:repo], :version => params[:version] }
+        haml :index, :locals => { :repo => params[:repo], :version => params[:version], :rendered_notes => rendered_notes }
 
     elsif params[:format].eql? "markdown"
         content_type :text, 'charset' => 'utf-8'
@@ -72,10 +72,10 @@ end
 
 __END__
 
-@@ layout
+@@ index
 !!!
 %html
     %head
         %title= "#{repo} #{version}"
     %body
-        = yield
+        #{rendered_notes}
