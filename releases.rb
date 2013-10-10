@@ -30,6 +30,8 @@ require 'redcarpet'
 
 require './lib/funcs'
 
+APP_VERSION = "0.1.0"
+
 configure :production do
     require 'newrelic_rpm'
 end
