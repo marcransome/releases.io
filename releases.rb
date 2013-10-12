@@ -45,17 +45,17 @@ end
 # release route
 get '/:user/:repo/:version' do
 
+    # default (html) response
     if params[:format].nil?
-
         notes = get_notes(params[:user], params[:repo], params[:version])
-
         return 404 if notes.nil?
 
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
         rendered_notes = markdown.render(notes)
 
         haml :index, :locals => { :repo => params[:repo], :version => params[:version], :rendered_notes => rendered_notes }
 
+    # markdown response
     elsif params[:format].eql? "markdown"
         content_type :text, 'charset' => 'utf-8'
         notes = get_notes(params[:user], params[:repo], params[:version])
