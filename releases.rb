@@ -36,10 +36,9 @@ configure :production do
     require 'newrelic_rpm'
 end
 
-# status for availability monitoring
+# serve static site content for default route
 get '/' do
-    content_type 'application/json'
-    {:status => 'running'}.to_json
+    send_file File.join(settings.public_folder, 'index.html')
 end
 
 # release route
