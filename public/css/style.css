@@ -1,45 +1,45 @@
 body {
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-size: 1em;
-	line-height: 1.5em;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
 #content {
-	width: 510px;
-	margin: 0 auto;
+    width: 510px;
+    margin: 0 auto;
 }
 
 header {
-	text-align: center;
-	margin-top: 1.875em;
-	margin-bottom: 2.188em;
+    text-align: center;
+    margin-top: 1.875em;
+    margin-bottom: 2.188em;
 }
 
 footer {
-	margin-top: 1.875em;
-	margin-bottom: 1.875em;
-	font-size: 0.9em;
-	text-align: center;
+    margin-top: 1.875em;
+    margin-bottom: 1.875em;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 h1 {
-	margin-top: 0.313em;
+    margin-top: 0.313em;
 }
 
 h3 {
-	margin-top: 1.875em;
-	line-height: 1em;
+    margin-top: 1.875em;
+    line-height: 1em;
 }
 
 code, pre {
-	font-family: "Source Code Pro", Menlo, Consolas, monospace;
-	font-size: 1em;
+    font-family: "Source Code Pro", Menlo, Consolas, monospace;
+    font-size: 1em;
 }
 
 code {
-	background-color: #f2f2f2;
-	border: 1px solid #b0b0b0;
-	padding: 1px 4px;
+    background-color: #f2f2f2;
+    border: 1px solid #b0b0b0;
+    padding: 1px 4px;
 }
 
 a:link { color: #CC5200; }
