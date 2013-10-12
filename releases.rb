@@ -67,8 +67,14 @@ get '/:user/:repo/:version' do
     end
 end
 
+# catch-all for non-matching routes
 get '/*' do
     404
+end
+
+# serve custom error page for 404s
+not_found do
+    send_file File.join(settings.public_folder, '404.html')
 end
 
 __END__

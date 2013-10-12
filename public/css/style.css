@@ -42,6 +42,10 @@ code {
     padding: 1px 4px;
 }
 
+.error_text {
+    text-align: center;
+}
+
 a:link { color: #CC5200; }
 a:visited { color: #CC5200; }
 a:hover { color: #FF5050; }
