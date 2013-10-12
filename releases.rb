@@ -74,7 +74,7 @@ end
 
 # serve custom error page for 404s
 not_found do
-    send_file File.join(settings.public_folder, '404.html')
+    send_file(File.join(settings.public_folder, '404.html'), {:status => 404})
 end
 
 __END__
