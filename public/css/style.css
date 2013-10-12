@@ -1,0 +1,48 @@
+body {
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+#content {
+	width: 510px;
+	margin: 0 auto;
+}
+
+header {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 35px;
+}
+
+footer {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 1em;
+	text-align: center;
+}
+
+h1 {
+	margin-top: 10px;
+}
+
+h3 {
+	margin-top: 30px;
+	line-height: 1em;
+}
+
+code, pre {
+	font-family: "Source Code Pro", Menlo, Consolas, monospace;
+	font-size: 1em;
+}
+
+code {
+	background-color: #f2f2f2;
+	border: 1px solid #b0b0b0;
+	padding: 1px 4px;
+}
+
+a:link { color: #CC5200; }
+a:visited { color: #CC5200; }
+a:hover { color: #FF5050; }
+a:active { color: #CC5200; }
