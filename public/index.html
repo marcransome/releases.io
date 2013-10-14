@@ -19,18 +19,15 @@
         <h1>releases.io</h1>
       </header>
       <p>Lorem ipsum dolor sit amet, consectetur <a href="sd">adipiscing elit</a>. Aliquam nec lacus laoreet, lobortis orci eget, rhoncus elit. Curabitur vestibulum, nunc convallis eleifend faucibus, turpis lacus ullamcorper dui, eget lobortis leo est vitae nisi. Ut sit amet odio erat. Aliquam erat volutpat. Mauris urna urna, rhoncus sit amet lacinia id, bibendum non neque. Ut dictum risus lectus, ut fermentum leo laoreet pellentesque. Vestibulum scelerisque dignissim mi vel bibendum. Proin vel massa at turpis pellentesque pharetra. Nullam arcu tellus, facilisis vel fermentum ac, tempor tincidunt sapien. Ut mattis ultrices libero eu condimentum. Quisque a massa nec neque posuere tristique.</p>
-      <pre><code>http://releases.io/:user/:repo/:version</code></pre>
-      <ul>
-        <li><code>:user</code> &mdash; the username</li>
-        <li><code>:repo</code> &mdash; the repository name</li>
-        <li><code>:version</code> &mdash; the version tag</li>
-      </ul>
+      <div id="warning_standout"><img id="warning_image" width="30" height="27" src="/images/warning.png">
+      <div id="warning_text"><b>Warning:</b> using <code>releases.io</code> in production-ready systems or code is <i>not</i> recommended at present due to its use of the developer preview of the <a href="http://developer.github.com/v3/repos/releases/">Github Releases API</a>. This message will be removed once the API has been finalised.</div><div class="clear_floats"></div></div>
       <h2>Why?</h2>
       <p>The original intention behind <code>releases.io</code> was a combination of the following aims:</p>
       <ul>
-        <li>To promote and encourage the use of <a href="https://help.github.com/articles/about-releases">Github Releases</a> for open-source projects.  Hosting your release notes at the <i>same</i> location that you host your code just makes sense. Writing release notes in Markdown is also a joy to behold.</li>
-        <li>To supplant the need to maintain many static HTML files for inclusion in software update frameworks such as <a href="http://sparkle.andymatuschak.org">Sparkle</a>, and instead use release notes generated directly from those stored on Github.</li>
-        <li>To provide a quick and easy way of sharing release notes with other people, without the unnecessary interface elements present on each Github release page, putting the focus squarely on the content.</li>
+        <li>To promote and encourage the use of <a href="https://help.github.com/articles/about-releases">Github Releases</a> for open-source projects.  Hosting your release notes at the <i>same</i> location that you host your code just makes sense. Writing release notes in Markdown is also a delightful experience.</li>
+        <li>To supplant the need to maintain many static HTML files for inclusion in software update frameworks such as <a href="http://sparkle.andymatuschak.org">Sparkle</a> &mdash; when no pizzaz is required &mdash; and instead use release notes generated directly from those stored on Github.</li>
+        <li>To provide a quick and easy way of sharing release notes with other people, without the full-blown Github webpage interface, putting the focus squarely on the content.</li>
+        <li>As a quick way of accessing release notes for inclusion in other projects, in either HTML or raw Markdown.</li>
         <li>For fame and profit &mdash; which <i>may</i> or <i>may not</i> be true.</li>
       </ul>
       <h2>Custom styles</h2>
@@ -52,7 +49,7 @@
       <p>If you'd like to contribute to the project, start by <a href="https://help.github.com/articles/fork-a-repo">forking the repository</a> on Github, then go ahead and make your code changes.  When you're done, submit a <a href="https://help.github.com/articles/using-pull-requests">pull request</a> with a brief description of your feature or bug fix.</p>
       <footer>
         <p>Email me at <a href="mailto:marc.ransome@fidgetbox.co.uk">marc.ransome@fidgetbox.co.uk</a> or tweet <a href="http://www.twitter.com/marcransome">@marcransome</a>.</p>
-        <p class="attribution"><a href="http://thenounproject.com/noun/delivery-man/#icon-No2691" target="_blank">Delivery Man</a> designed by <a href="http://thenounproject.com/claxxmoldii" target="_blank">Jon Trillana</a> and
+        <p id="attribution"><a href="http://thenounproject.com/noun/delivery-man/#icon-No2691" target="_blank">Delivery Man</a> designed by <a href="http://thenounproject.com/claxxmoldii" target="_blank">Jon Trillana</a> and
         <a href="http://thenounproject.com/noun/box-trolley/#icon-No21806" target="_blank">Box Trolley</a> designed by <a href="http://thenounproject.com/Michzen" target="_blank">Michael Zenaty</a> from The Noun Project</p>
         <p>&copy; 2013 Marc Ransome</p>
       </footer>

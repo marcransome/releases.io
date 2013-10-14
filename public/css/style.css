@@ -22,7 +22,7 @@ header {
 }
 
 footer {
-    margin-top: 1.875em;
+    margin-top: 2.188em;
     margin-bottom: 1.875em;
     font-size: 0.9em;
     text-align: center;
@@ -48,13 +48,33 @@ code {
     padding: 1px 4px;
 }
 
-.error_text {
+#error_text {
     text-align: center;
 }
 
-.attribution {
+#attribution {
     margin-left: 4em;
     margin-right: 4em;
+}
+
+#warning_standout {
+    border: 1px solid grey;
+    padding: 6px;
+}
+
+#warning_image {
+    float: left;
+    margin-top: 3px;
+}
+
+#warning_text {
+    float: left;
+    width: 455px;
+    margin-left: 6px;
+}
+
+.clear_floats {
+    clear: both;
 }
 
 a:link { color: #CC5200; }
