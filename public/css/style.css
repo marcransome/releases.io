@@ -46,6 +46,11 @@ code {
     text-align: center;
 }
 
+.attribution {
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
 a:link { color: #CC5200; }
 a:visited { color: #CC5200; }
 a:hover { color: #FF5050; }
