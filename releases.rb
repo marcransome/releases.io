@@ -42,7 +42,7 @@ get '/' do
 end
 
 # release route
-get '/:user/:repo/:version' do
+get '/:user/:repo/?:releases?/:version' do
 
     # default (html) response
     if params[:format].nil?
