@@ -83,6 +83,7 @@ __END__
 !!!
 %html
     %head
+        %meta{:charset => "utf-8"}
         %title= "#{repo} #{version}"
     %body
         #{rendered_notes}
