@@ -85,5 +85,7 @@ __END__
     %head
         %meta{:charset => "utf-8"}
         %title= "#{repo} #{version}"
+        - if params[:css] 
+            %link(rel="stylesheet" href="#{params[:css]}")          
     %body
         #{rendered_notes}
