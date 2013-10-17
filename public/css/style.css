@@ -67,8 +67,9 @@ code {
 }
 
 #warning_image {
+    width: 29px;
+    height: 27px;
     float: left;
-    margin-top: 3px;
 }
 
 #warning_text {
