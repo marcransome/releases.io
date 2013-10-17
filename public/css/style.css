@@ -1,7 +1,8 @@
 body {
     font-family: "Source Sans Pro", Helvetica, sans-serif;
-    font-size: 1em;
+    font-size: 100%;
     line-height: 1.5em;
+    -webkit-text-size-adjust: 100%;
 }
 
 #content {
