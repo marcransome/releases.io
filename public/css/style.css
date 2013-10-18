@@ -42,6 +42,10 @@ h2 {
     margin-top: 1.2em;
 }
 
+pre {
+    overflow: scroll;
+}
+
 code, pre {
     font-family: "Source Code Pro", Menlo, Consolas, monospace;
 }
@@ -80,6 +84,10 @@ code {
     margin-left: 38px;
 }
 
+.green_text {
+    color: green;
+}
+
 .clear_floats {
     clear: both;
 }
@@ -88,3 +96,14 @@ a:link { color: #CC5200; }
 a:visited { color: #CC5200; }
 a:hover { color: #FF5050; }
 a:active { color: #CC5200; }
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
