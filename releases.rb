@@ -42,7 +42,10 @@ get '/' do
 end
 
 # release route
-get '/:user/:repo/?:releases?/:version' do
+get '/:user/:repo/?:releases?/?:tag?/:version' do
+
+    # both :releases and :tag are optional, and included only to
+    # allow direct TLD swapping between Github and releases.io
 
     # default (html) response
     if params[:format].nil?
