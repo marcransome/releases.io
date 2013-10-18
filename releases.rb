@@ -44,29 +44,27 @@ end
 # release route
 get '/:user/:repo/?:releases?/?:tag?/:version' do
 
-    # both :releases and :tag are optional, and included only to
-    # allow direct TLD swapping between Github and releases.io
+    # both :releases and :tag are optional, and are included only
+    # to allow direct TLD swapping between Github and releases.io
 
-    # default (html) response
-    if params[:format].nil?
-        notes = get_notes(params[:user], params[:repo], params[:version])
-        return 404 if notes.nil?
+    @user = params[:user]
+    @repo = params[:repo]
+    @version = params[:version]
+    @css = params[:css]
+    @format = params[:format]
+    @notes = get_notes(@user, @repo, @version)
+    
+    return 404 if @notes.nil?
 
+    # html response
+    if @format.nil?
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
-        rendered_notes = markdown.render(notes)
-
-        haml :index, :locals => { :repo => params[:repo], :version => params[:version], :rendered_notes => rendered_notes }
-
+        @notes = markdown.render(@notes)
+        haml :index
     # markdown response
-    elsif params[:format].eql? "markdown"
+    elsif @format.eql? "markdown"
         content_type :text, 'charset' => 'utf-8'
-        notes = get_notes(params[:user], params[:repo], params[:version])
-
-        if notes.nil?
-            return 404
-        else
-            return notes
-        end
+        @notes
     end
 end
 
@@ -87,8 +85,8 @@ __END__
 %html
     %head
         %meta{:charset => "utf-8"}
-        %title= "#{repo} #{version}"
-        - if params[:css] 
-            %link(rel="stylesheet" href="#{params[:css]}")          
+        %title= "#{@repo} #{@version}"
+        - if not @css.nil?
+            %link(rel="stylesheet" href="#{@css}")          
     %body
-        #{rendered_notes}
+        #{@notes}
