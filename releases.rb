@@ -30,7 +30,7 @@ require 'redcarpet'
 
 require './lib/funcs'
 
-APP_VERSION = "0.1.0"
+APP_VERSION = "0.2.0"
 
 configure :production do
     require 'newrelic_rpm'
@@ -55,6 +55,11 @@ get '/:user/:repo/?:releases?/?:tag?/:version' do
     @notes = get_notes(@user, @repo, @version)
     
     return 404 if @notes.nil?
+
+    case @css
+    when "sans" then @css = "/css/sans.css"
+    when "serif" then @css = "/css/serif.css"
+    end
 
     # html response
     if @format.nil?
