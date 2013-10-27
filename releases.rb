@@ -34,7 +34,6 @@ APP_VERSION = "0.2.0"
 
 configure :production do
     require 'newrelic_rpm'
-    set :force_ssl, true
 end
 
 # serve static site content for default route
