@@ -47,6 +47,12 @@ h2 {
 
 pre {
     overflow: auto;
+    padding: 2px 4px;
+}
+
+code {
+    padding: 1px 4px;
+    margin-right: 1px;
 }
 
 code, pre {
@@ -54,7 +60,6 @@ code, pre {
     font-size: 0.813em;
     background-color: #f2f2f2;
     border: 1px solid #b0b0b0;
-    padding: 2px 4px;
 }
 
 pre code {
