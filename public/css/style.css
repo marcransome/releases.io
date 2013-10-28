@@ -57,6 +57,13 @@ code, pre {
     padding: 2px 4px;
 }
 
+pre code {
+    font-size: 1em;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
 #error_text {
     text-align: center;
 }
