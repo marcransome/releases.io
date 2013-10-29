@@ -104,6 +104,18 @@ pre code {
     clear: both;
 }
 
+table {
+    width: 100%;
+    border: 1px solid #b0b0b0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px 20px;
+    border: 1px solid #b0b0b0;
+    text-align: center;
+}
+
 a:link { color: #CC5200; }
 a:visited { color: #CC5200; }
 a:hover { color: #FF5050; }
