@@ -43,9 +43,11 @@
         </tr>
       </table>
       <p>The resulting HTML page is rendered directly from the raw <a href="https://help.github.com/articles/GitHub-flavored-markdown">GitHub Flavoured Markdown</a> release notes hosted on GitHub. For tags that have no associated release notes (or non-existent/misspelled repositories or usernames) a <code>404</code> response code will be returned.</p>
-      <p>In addition to the short-form URL described above, a longer form that is directly compatible with GitHub's own release notes URL naming is provided. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link:</p>
+      <p>In addition to the short-form URL described above, a longer variation is available that is directly compatible with GitHub's naming scheme. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link by replacing the top-level domain name.
+      </p>
+      <p>For example, the following GitHub link:</p>
       <pre>https://github.com/yui/pure/releases/tag/v0.3.0</pre>
-      Becomes:
+      Should be modified to:
       <pre>https://<span class="text_highlight">releases.io</span>/yui/pure/releases/tag/v0.3.0</pre>
       <p>Note: The words 'releases' and 'tag' are ommited from the short-form URL, and only included in the API for GitHub link compatibility.</p>
       <div id="warning_standout"><div id="warning_image_container"><img id="warning_image" src="/images/warning.png" alt="warning"></div>
@@ -68,9 +70,11 @@
         <li><code>css=sans</code> - uses standard sans serif fonts</li>
         <li><code>css=serif</code> - uses standard serif fonts</li>
       </ul>
-      <p>Please be aware that using an external stylesheet parameter may add a significant overhead to the page load time. You can inspect the content of the pre-defined stylesheets by visiting <code>https://releases.io/css/:stylesheet.css</code>.</p>
+      <p>Using an external stylesheet may add a significant overhead to the page load time.</p>
       <h2>Embedding</h2>
-      <p>Suspendisse eget arcu eu metus accumsan pharetra sit amet in quam. Curabitur ipsum nunc, laoreet quis lorem vitae, vulputate tristique lorem. Duis felis leo, auctor nec tellus eget, ultrices dignissim ante. Aenean sit amet metus sagittis, venenatis quam in, dictum arcu. Phasellus id nunc id felis fringilla rhoncus a a elit. Mauris a tortor eu mauris facilisis condimentum quis at ante. Mauris vitae dui in elit tincidunt fermentum sed sed orci. Duis feugiat enim luctus commodo sodales. Nulla quis odio commodo, euismod mi quis, facilisis mauris. Nulla urna lorem, facilisis non euismod in, condimentum eu augue. Sed eu aliquam est. Proin gravida cursus metus. Maecenas euismod diam eget vehicula tincidunt. Aenean viverra lobortis leo sed hendrerit.</p>
+      <p>Suspendisse eget arcu eu metus accumsan pharetra sit amet in quam. Curabitur ipsum nunc, laoreet quis lorem vitae, vulputate tristique lorem. Duis felis leo, auctor nec tellus eget, ultrices dignissim ante. Aenean sit amet metus sagittis, venenatis quam in, dictum arcu. Phasellus id nunc id felis fringilla rhoncus a a elit. Mauris a tortor eu mauris facilisis condimentum quis at ante. Mauris vitae dui in elit tincidunt fermentum sed sed orci. Duis feugiat enim luctus commodo sodales. Nulla quis odio commodo, euismod mi quis, facilisis mauris. Nulla urna lorem, facilisis non euismod in, condimentum eu augue. Sed eu aliquam est.
+      <h2>Caveats</h2>
+      <p>Proin gravida cursus metus. Maecenas euismod diam eget vehicula tincidunt. Aenean viverra lobortis leo sed hendrerit.</p>
       <h2 id="fun_stuff">Other Uses</h2>
       <p>Aliquam erat volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vulputate neque felis, a sagittis diam congue a. Etiam odio orci, molestie at tincidunt nec, lobortis et erat. Curabitur nec imperdiet risus. Sed vel semper nulla. Aliquam nec purus metus. Donec faucibus semper lacus, nec commodo tortor ultrices eget. Pellentesque ultrices, tortor sit amet dapibus pellentesque, ante mi molestie lorem, at egestas mi diam eu quam. Morbi tincidunt, urna in ultricies malesuada, lorem est lobortis nulla, eu sagittis lorem tellus molestie felis. In ut faucibus metus. Integer fringilla orci magna, in venenatis lorem ullamcorper sit amet. Aliquam tincidunt lorem enim, ut pulvinar.</p>
       <h2>Acknowledgements</h2>
