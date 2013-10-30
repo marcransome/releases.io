@@ -62,7 +62,7 @@ get '/:user/:repo/?:releases?/?:tag?/:version' do
     end
 
     # html response
-    if @format.nil?
+    if @format.eql? "html" or @format.nil?
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
         @notes = markdown.render(@notes)
         haml :index
