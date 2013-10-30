@@ -51,7 +51,6 @@ get '/:user/:repo/?:releases?/?:tag?/:version' do
     @repo = params[:repo]
     @version = params[:version]
     @css = params[:css]
-    @format = params[:format]
     @notes = get_notes(@user, @repo, @version)
     
     return 404 if @notes.nil?
@@ -61,16 +60,10 @@ get '/:user/:repo/?:releases?/?:tag?/:version' do
     when "serif" then @css = "/css/serif.css"
     end
 
-    # html response
-    if @format.eql? "html" or @format.nil?
-        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
-        @notes = markdown.render(@notes)
-        haml :index
-    # markdown response
-    elsif @format.eql? "markdown"
-        content_type :text, 'charset' => 'utf-8'
-        @notes
-    end
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
+    @notes = markdown.render(@notes)
+    
+    haml :index
 end
 
 # catch-all for non-matching routes
