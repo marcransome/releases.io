@@ -42,20 +42,22 @@
           <td>the git tag associated with the release notes (e.g. v0.3.0 or 4.1.0)</td>
         </tr>
       </table>
-      <p>The resulting HTML page is rendered directly from the raw <a href="https://help.github.com/articles/GitHub-flavored-markdown">GitHub Flavoured Markdown</a> release notes hosted on GitHub. For tags that have no associated release notes (or non-existent/misspelled repositories or usernames) a <code>404</code> response code will be returned.</p>
-      <p>In addition to the short-form URL described above, a longer variation is available that is directly compatible with GitHub's naming scheme. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link by replacing the top-level domain name.</p>
+      <p>The resulting HTML page is rendered directly from the raw <a href="https://help.github.com/articles/GitHub-flavored-markdown">GitHub Flavoured Markdown</a> release notes hosted on GitHub. If a tag has no release notes associated with it (or the repository name or username is mispelled or non-existent) a <code>404</code> response code will be returned.</p>
+      <p>If you'd like a link that always displays the most recent release notes for a project, just omit the tag parameter from the URL:</p>
+      <pre>https://releases.io/:user/:repo</pre>
+      <p>In addition to the short-form URL described so far, a longer variation is available that is directly compatible with GitHub's naming scheme. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link by replacing the top-level domain name.</p>
       <p>For example, the following GitHub link:</p>
       <pre>https://github.com/yui/pure/releases/tag/v0.3.0</pre>
-      Should be modified to:
+      Can be modified to:
       <pre>https://<span class="text_highlight">releases.io</span>/yui/pure/releases/tag/v0.3.0</pre>
       <p>Note: The words 'releases' and 'tag' are ommited from the short-form URL, and only included in the API for GitHub link compatibility.</p>
       <div id="warning_standout"><div id="warning_image_container"><img id="warning_image" src="/images/warning.png" alt="warning"></div>
       <div id="warning_text"><strong>Warning:</strong> using this service in production-ready systems or code is <em>not</em> recommended at present due to its use of the developer preview of the <a href="http://developer.github.com/v3/repos/releases/">GitHub Releases API</a>. This message will be removed once the API has been finalised.</div><div class="clear_floats"></div></div>
       <h2>Why?</h2>
-      <p>The original intention behind <code>releases.io</code> was a combination of the following aims:</p>
+      <p>The motivation to build <code>releases.io</code> was a combination of several aims:</p>      
       <ul>
         <li>To promote and encourage the use of <a href="https://help.github.com/articles/about-releases">GitHub Releases</a> for open-source projects, because hosting your release notes at the <em>same</em> location that you host your code just makes sense.</li>
-        <li>To supplant the need to maintain many static HTML files for software update frameworks such as <a href="http://sparkle.andymatuschak.org">Sparkle</a> &mdash; when no particular pizzaz is required &mdash; and instead use release notes generated directly from those stored on GitHub.</li>
+        <li>To supplant the need to maintain many static HTML files for software update frameworks &mdash; when no particular pizzaz is required &mdash; and instead use release notes generated directly from those stored on GitHub.</li>
         <li>To provide a quick and easy way of sharing release notes with other people, without the full-blown GitHub web interface, putting the focus squarely on the content.</li>
         <li>For fame and profit &mdash; which <em>may</em> or <em>may not</em> be true.</li>
       </ul>
