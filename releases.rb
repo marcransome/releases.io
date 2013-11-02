@@ -42,7 +42,7 @@ get '/' do
 end
 
 # release route
-get '/:user/:repo/?:releases?/?:tag?/:version' do
+get '/:user/:repo/?:releases?/?:tag?/:version/?' do
 
     # both :releases and :tag are optional, and are included only
     # to allow direct TLD swapping between Github and releases.io
@@ -64,11 +64,6 @@ get '/:user/:repo/?:releases?/?:tag?/:version' do
     @notes = markdown.render(@notes)
     
     haml :index
-end
-
-# catch-all for non-matching routes
-get '/*' do
-    404
 end
 
 # serve custom error page for 404s
