@@ -27,48 +27,46 @@ require 'haml'
 require 'json'
 require 'net/http'
 require 'redcarpet'
-
+require 'time'
 require './lib/funcs'
 
-APP_VERSION = "0.2.0"
+APP_VERSION = "0.3.0"
 
 configure :production do
-    require 'newrelic_rpm'
+  require 'newrelic_rpm'
 end
 
 # serve static site content for default route
 get '/' do
-    send_file File.join(settings.public_folder, 'index.html')
+  send_file File.join(settings.public_folder, 'index.html')
 end
 
-# release route
-get '/:user/:repo/?:releases?/?:tag?/:version/?' do
-
-    # both :releases and :tag are optional, and are included only
-    # to allow direct TLD swapping between Github and releases.io
-
-    @user = params[:user]
-    @repo = params[:repo]
-    @version = params[:version]
-    @css = params[:css]
-    @notes = get_notes(@user, @repo, @version)
-    
-    return 404 if @notes.nil?
-
-    case @css
+before do
+  @css = params[:css]
+  case @css
     when "sans" then @css = "/css/sans.css"
     when "serif" then @css = "/css/serif.css"
-    end
+  end
+end
 
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
-    @notes = markdown.render(@notes)
-    
-    haml :index, :ugly => params[:ugly].eql?("no") ? false : true
+get '/:user/:repo/?' do
+  @repo = params[:repo]
+  @notes = get_notes({:user => params[:user], :repo => params[:repo]})
+  return 404 if @notes.nil?
+  haml :index, :ugly => params[:ugly].eql?("no") ? false : true
+end
+
+get '/:user/:repo/?:releases?/?:tag?/:tag_name/?' do
+  @repo = params[:repo]
+  @tag_name = params[:tag_name]
+  @notes = get_notes({:user => params[:user], :repo => params[:repo], :tag_name => params[:tag_name]})
+  return 404 if @notes.nil?
+  haml :index, :ugly => params[:ugly].eql?("no") ? false : true
 end
 
 # serve custom error page for 404s
 not_found do
-    send_file(File.join(settings.public_folder, '404.html'), {:status => 404})
+  send_file(File.join(settings.public_folder, '404.html'), {:status => 404})
 end
 
 __END__
@@ -76,10 +74,10 @@ __END__
 @@ index
 !!!
 %html
-    %head
-        %meta{:charset => "utf-8"}
-        %title= "#{@repo} #{@version}"
-        - if not @css.nil?
-            %link(rel="stylesheet" href="#{@css}")          
-    %body
-        #{@notes}
+  %head
+    %meta{:charset => "utf-8"}
+    %title= "#{@repo} #{@tag_name}"
+    - if not @css.nil?
+      %link(rel="stylesheet" href="#{@css}")          
+  %body
+    #{@notes}
