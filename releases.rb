@@ -63,7 +63,7 @@ get '/:user/:repo/?:releases?/?:tag?/:version/?' do
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
     @notes = markdown.render(@notes)
     
-    haml :index
+    haml :index, :ugly => params[:ugly].eql?("no") ? false : true
 end
 
 # serve custom error page for 404s
