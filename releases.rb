@@ -50,18 +50,17 @@ before do
 end
 
 get '/:user/:repo/?' do
-  @repo = params[:repo]
+  @title = params[:repo]
   @notes = get_notes({:user => params[:user], :repo => params[:repo]})
   return 404 if @notes.nil?
-  haml :index, :ugly => params[:ugly].eql?("no") ? false : true
+  haml :index, :ugly => params[:ugly].eql?("false") ? false : true
 end
 
 get '/:user/:repo/?:releases?/?:tag?/:tag_name/?' do
-  @repo = params[:repo]
-  @tag_name = params[:tag_name]
+  @title = "#{params[:repo]} #{params[:tag_name]}"
   @notes = get_notes({:user => params[:user], :repo => params[:repo], :tag_name => params[:tag_name]})
   return 404 if @notes.nil?
-  haml :index, :ugly => params[:ugly].eql?("no") ? false : true
+  haml :index, :ugly => params[:ugly].eql?("false") ? false : true
 end
 
 # serve custom error page for 404s
@@ -76,7 +75,7 @@ __END__
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title= "#{@repo} #{@tag_name}"
+    %title= "#{@title}"
     - if not @css.nil?
       %link(rel="stylesheet" href="#{@css}")          
   %body
