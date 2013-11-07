@@ -19,11 +19,12 @@
         <img id="logo" src="/images/delivery.png" alt="releases.io">
         <h1>releases.io</h1>
       </header>
-      <p>Maintaining release notes as static HTML files for software update frameworks such as <a href="http://sparkle.andymatuschak.org">Sparkle</a> can be a chore, but it doesn't have to be that way. If you're hosting your code on GitHub, you may already be using <a href="https://help.github.com/articles/about-releases">GitHub Releases</a> for your release notes, in which case you're already halfway to solving the problem. Wouldn't it be great if you could display those very same release notes in your updater, without the unnecessary GitHub web interface? Enter <code>releases.io</code>.</p>
-      <p>You can retrieve a plain HTML copy of your release notes, without the GitHub interface, using just a simple URL, for displaying in your application's software updater or <a href="#fun_stuff">using elsewhere</a>.</p>
-      <p>URLs are formatted like this:</p>
+      <p>Maintaining your project's release notes in static HTML files for software update frameworks like <a href="">Sparkle</a> can be a chore. If your project is hosted on GitHub then you may already be using <a href="https://help.github.com/articles/about-releases">GitHub Releases</a>, in which case you're already halfway to solving the problem. Wouldn't it be great if you could show those same release notes in your updater, without the unnecessary GitHub interface?</p>
+      <h2>Usage</h2>
+      <p><code>releases.io</code> generates a clean HTML page directly from your GitHub release notes, with no unnecessary web interface. Great for showing in your application's software updater.</p>
+      <p>To use it, construct a URL with the following format:
       <pre>https://releases.io/:user/:repo/:tag</pre>
-      <p>Both HTTP and HTTPS protocols are supported. The parameters that make up the URL are explained below:</p>
+      <p>Specify the following parameters:</p>
       <table>
         <tr>
           <th>Parameter</th>
@@ -31,58 +32,63 @@
         </tr>
         <tr>
           <td><code>:user</code></td>
-          <td>the Github username for the project maintainer</td>
+          <td>The GitHub username associated with the project.</td>
         </tr>
         <tr>
           <td><code>:repo</code></td>
-          <td>the Github repository name for the project</td>
+          <td>The GitHub repository name for the project.</td>
         </tr>
         <tr>
           <td><code>:tag</code></td>
-          <td>the git tag associated with the release notes (e.g. v0.3.0 or 4.1.0)</td>
+          <td>The git tag associated with the release notes (e.g. v0.3.0 or 4.1.0).</td>
         </tr>
       </table>
-      <p>The resulting HTML page is rendered directly from the raw <a href="https://help.github.com/articles/GitHub-flavored-markdown">GitHub Flavoured Markdown</a> release notes hosted on GitHub. If a tag has no release notes associated with it (or the repository name or username is mispelled or non-existent) a <code>404</code> response code will be returned.</p>
-      <p>If you'd like a link that always displays the most recent release notes for a project, just omit the tag parameter from the URL:</p>
+      <p>If a tag has no release notes associated with it (or the repository name or username is misspelled or non-existent) a <code>404</code> response code will be returned.</p>
+      <p>If you want a link that always displays the most recent release notes for your project, just omit the tag parameter from the URL:</p>
       <pre>https://releases.io/:user/:repo</pre>
-      <p>In addition to the short-form URL described so far, a longer variation is available that is directly compatible with GitHub's naming scheme. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link by replacing the top-level domain name.</p>
-      <p>For example, the following GitHub link:</p>
+      <p>In addition to the short-form URL described so far, a longer variation is available for compatibility with GitHub's naming scheme. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link by replacing just the top-level domain name:</p>
       <pre>https://github.com/yui/pure/releases/tag/v0.3.0</pre>
-      Can be modified to:
+      Becomes:
       <pre>https://<span class="text_highlight">releases.io</span>/yui/pure/releases/tag/v0.3.0</pre>
-      <p>Note: The words 'releases' and 'tag' are ommited from the short-form URL, and only included in the API for GitHub link compatibility.</p>
-      <div id="warning_standout"><div id="warning_image_container"><img id="warning_image" src="/images/warning.png" alt="warning"></div>
-      <div id="warning_text"><strong>Warning:</strong> using this service in production-ready systems or code is <em>not</em> recommended at present due to its use of the developer preview of the <a href="http://developer.github.com/v3/repos/releases/">GitHub Releases API</a>. This message will be removed once the API has been finalised.</div><div class="clear_floats"></div></div>
-      <h2>Why?</h2>
-      <p>The motivation to build <code>releases.io</code> was a combination of several aims:</p>      
+      <p>Both HTTP and HTTPS protocols are supported.</p>
+      <h2>Custom Styles</h2>
+      <p>By default, no styling is applied to pages generated by this service. If you would like to adjust the look of your pages you can specify an external stylesheet in a <code>css</code> URL parameter:
+      <pre>https://releases.io/:user/:repo/:tag<span class="text_highlight">?css=http://yourhost.com/style.css</span></pre> 
+      <p>If you're only concerned with adjusting the base font style, you can use one of two basic pre-defined stylesheets:</p>
+      <ul>
+        <li><code>css=sans</code> - for standard sans serif fonts</li>
+        <li><code>css=serif</code> - for standard serif fonts</li>
+      </ul>
+      <p>Using an external stylesheet adds a small overhead to the page load time, which you may want to take into consideration.</p>
+      <h2>Advanced</h2>
+      The following optional URL parameters are available:</p>
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>ugly=</code></td>
+          <td>When <code>true</code>, no formatting or indentation is applied to the HTML code. This is the default value. Specify <code>false</code> for better-formatted HTML code, at the cost of slower response times.</td>
+        </tr>
+      </table>
+      <h2>Caveats</h2>
+      <p>Only published release notes are accessible by <code>releases.io</code>. 
+      <h2>The <em>'Why?'</em></h2>
+      <p>The motivation behind <code>releases.io</code> was a combination of several aims:</p>      
       <ul>
         <li>To promote and encourage the use of <a href="https://help.github.com/articles/about-releases">GitHub Releases</a> for open-source projects, because hosting your release notes at the <em>same</em> location that you host your code just makes sense.</li>
-        <li>To supplant the need to maintain many static HTML files for software update frameworks &mdash; when no particular pizzaz is required &mdash; and instead use release notes generated directly from those stored on GitHub.</li>
+        <li>To supplant the need to maintain many static HTML files for software update frameworks &mdash; when no particular pizzaz is required &mdash; and instead use release notes generated directly from those hosted on GitHub.</li>
         <li>To provide a quick and easy way of sharing release notes with other people, without the full-blown GitHub web interface, putting the focus squarely on the content.</li>
         <li>For fame and profit &mdash; which <em>may</em> or <em>may not</em> be true.</li>
       </ul>
-      <h2>Custom Styles</h2>
-      <p>By default, no styling is applied to the pages generated by this service. If you would like to retain an element of control over the look of your pages you can specify an external stylesheet in a <code>css</code> URL parameter:
-      <pre>https://releases.io/yui/pure/releases/tag/v0.3.0<span class="text_highlight">?css=http://host.com/style.css</span></pre> 
-      <p>If you're only concerned with the base font style, you can use one of the following pre-defined stylesheets:</p>
-      <ul>
-        <li><code>css=sans</code> - uses standard sans serif fonts</li>
-        <li><code>css=serif</code> - uses standard serif fonts</li>
-      </ul>
-      <p>Using an external stylesheet may add a small overhead to the page load time.</p>
-      <h2>Embedding</h2>
-      <p>Suspendisse eget arcu eu metus accumsan pharetra sit amet in quam. Curabitur ipsum nunc, laoreet quis lorem vitae, vulputate tristique lorem. Duis felis leo, auctor nec tellus eget, ultrices dignissim ante. Aenean sit amet metus sagittis, venenatis quam in, dictum arcu. Phasellus id nunc id felis fringilla rhoncus a a elit. Mauris a tortor eu mauris facilisis condimentum quis at ante. Mauris vitae dui in elit tincidunt fermentum sed sed orci. Duis feugiat enim luctus commodo sodales. Nulla quis odio commodo, euismod mi quis, facilisis mauris. Nulla urna lorem, facilisis non euismod in, condimentum eu augue. Sed eu aliquam est.</p>
-      <h2>Caveats</h2>
-      <p>Proin gravida cursus metus. Maecenas euismod diam eget vehicula tincidunt. Aenean viverra lobortis leo sed hendrerit.</p>
-      <h2 id="fun_stuff">Other Uses</h2>
-      <p>Aliquam erat volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vulputate neque felis, a sagittis diam congue a. Etiam odio orci, molestie at tincidunt nec, lobortis et erat. Curabitur nec imperdiet risus. Sed vel semper nulla. Aliquam nec purus metus. Donec faucibus semper lacus, nec commodo tortor ultrices eget. Pellentesque ultrices, tortor sit amet dapibus pellentesque, ante mi molestie lorem, at egestas mi diam eu quam. Morbi tincidunt, urna in ultricies malesuada, lorem est lobortis nulla, eu sagittis lorem tellus molestie felis. In ut faucibus metus. Integer fringilla orci magna, in venenatis lorem ullamcorper sit amet. Aliquam tincidunt lorem enim, ut pulvinar.</p>
       <h2>Acknowledgements</h2>
       <p>The following libraries and technologies have made <code>releases.io</code> possible:</p>
       <ul>
         <li><a href="http://www.sinatrarb.com">Sinatra</a> by Blake Mizerany</li>
         <li><a href="http://code.macournoyer.com/thin/">Thin</a> by Marc-André Cournoyer</li>
         <li><a href="https://github.com/vmg/redcarpet">RedCarpet</a> by Vicent Martí</li>
-        <li><a href="http://flori.github.io/json/index.html">JSON implementation for Ruby</a> by Florian Frank</li>
+        <li><a href="http://flori.GitHub.io/json/index.html">JSON implementation for Ruby</a> by Florian Frank</li>
         <li><a href="http://haml.info">Haml</a> by The Haml Team
       </ul>
       <h2>License</h2>
