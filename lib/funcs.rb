@@ -29,7 +29,6 @@ def get_notes(options = {})
   http.use_ssl = true
   
   request = Net::HTTP::Get.new(uri)
-  request.add_field 'Accept', 'application/vnd.github.manifold-preview'
   request.add_field 'Authorization', "token #{ENV['GITHUB_AUTH_TOKEN']}"
   request.add_field 'User-Agent', "releases-io/#{APP_VERSION}"
   
