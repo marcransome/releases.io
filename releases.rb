@@ -41,6 +41,7 @@ get '/' do
   send_file File.join(settings.public_folder, 'index.html')
 end
 
+# expand pre-defined css template names to local paths
 before do
   @css = params[:css]
   case @css
@@ -49,6 +50,7 @@ before do
   end
 end
 
+# short-form route
 get '/:user/:repo/?' do
   @title = params[:repo]
   @notes = get_notes({:user => params[:user], :repo => params[:repo]})
@@ -56,6 +58,7 @@ get '/:user/:repo/?' do
   haml :index, :ugly => params[:ugly].eql?("false") ? false : true
 end
 
+# long-form route for github compatibility
 get '/:user/:repo/?:releases?/?:tag?/:tag_name/?' do
   @title = "#{params[:repo]} #{params[:tag_name]}"
   @notes = get_notes({:user => params[:user], :repo => params[:repo], :tag_name => params[:tag_name]})
