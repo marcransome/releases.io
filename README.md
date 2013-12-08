@@ -1,6 +1,6 @@
 ## releases.io
 
-Maintaining your project's release notes in static HTML files for your software updater can be a chore. If your project is hosted on GitHub however, you may already be using [GitHub Releases](https://help.github.com/articles/about-releases), in which case you're already halfway to solving the problem. Wouldn't it be great if you could show those same release notes in your updater, without the unnecessary GitHub interface?
+Maintaining static HTML files for displaying release notes in your project's software updater can be a chore, particularly if your code and release notes are hosted separately. If your project is hosted on GitHub however, you may already be using [GitHub Releases](https://help.github.com/articles/about-releases), in which case you're already halfway to solving the problem. Wouldn't it be great if you could show those same release notes in your updater, without the unnecessary GitHub interface?
 
 Enter [releases.io](http://releases.io).
 
