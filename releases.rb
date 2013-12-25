@@ -82,4 +82,6 @@ __END__
     - if not @css.nil?
       %link(rel="stylesheet" href="#{@css}")          
   %body
+    - if params[:heading].eql?("true") 
+      %h1 #{@title}
     #{@notes}
