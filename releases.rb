@@ -30,11 +30,11 @@ require 'redcarpet'
 require 'time'
 require './lib/funcs'
 
-APP_VERSION = "1.0.0"
-
 configure :production do
   require 'newrelic_rpm'
 end
+
+APP_VERSION = "1.0.0"
 
 # serve static site content for default route
 get '/' do
