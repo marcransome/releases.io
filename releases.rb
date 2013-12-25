@@ -55,7 +55,7 @@ get '/:user/:repo/?' do
   @title = params[:repo]
   @notes = get_notes({:user => params[:user], :repo => params[:repo]})
   return 404 if @notes.nil?
-  haml :index, :ugly => params[:ugly].eql?("false") ? false : true
+  haml :index, :ugly => params[:pretty].eql?("true") ? false : true
 end
 
 # long-form route for github compatibility
@@ -63,7 +63,7 @@ get '/:user/:repo/?:releases?/?:tag?/:tag_name/?' do
   @title = "#{params[:repo]} #{params[:tag_name]}"
   @notes = get_notes({:user => params[:user], :repo => params[:repo], :tag_name => params[:tag_name]})
   return 404 if @notes.nil?
-  haml :index, :ugly => params[:ugly].eql?("false") ? false : true
+  haml :index, :ugly => params[:pretty].eql?("true") ? false : true
 end
 
 # serve custom error page for 404s
