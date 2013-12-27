@@ -94,6 +94,16 @@ th, td {
     text-align: center;
 }
 
+sup {
+    vertical-align: baseline;
+    position: relative;
+    bottom: 0.5ex;
+}
+
+.footnote {
+    font-size: 0.875em;
+}
+
 a:link { color: #CC5200; }
 a:visited { color: #CC5200; }
 a:hover { color: #FF5050; }
