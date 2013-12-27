@@ -33,6 +33,11 @@ footer {
     text-align: center;
 }
 
+#heroku {
+    width: 117px;
+    height: 30px;
+}
+
 h1 {
     font-size: 2em;
     margin-top: 0.313em;
