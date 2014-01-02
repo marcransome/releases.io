@@ -6,7 +6,7 @@ GEM
     haml (4.0.4)
       tilt
     json (1.8.1)
-    newrelic_rpm (3.7.0.177)
+    newrelic_rpm (3.7.1.182)
     rack (1.5.2)
     rack-protection (1.5.1)
       rack
