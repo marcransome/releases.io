@@ -62,7 +62,7 @@ def extract_latest(json)
       next
     end
   end
-  latest_release["body"]
+  latest_release.empty? ? nil : latest_release["body"]
 end
 
 def extract_tag(json, tag_name)
