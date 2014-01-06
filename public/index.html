@@ -67,6 +67,16 @@
         <li><code>css=serif</code> - for standard serif fonts</li>
       </ul>
       <p>Using an external stylesheet adds a small overhead to the page load time.</p>
+      <div id="warning_standout">
+        <div id="warning_image_container">
+          <img id="warning_image" src="/images/warning.png" alt="warning">
+        </div>
+        <div id="warning_text_container">
+          <strong>Warning:</strong> you should avoid specifying a stylesheet that uses <code>http</code> if your base URL uses <code>https</code>, as the browser or web component responsible for rendering your release notes may refuse to load the stylesheet.
+          <p>Instead, use <code>http</code> for the base URL (i.e. <code>http://releases.io/..</code>), or use a stylesheet that can be accessed via <code>https</code>.</p>
+        </div>
+        <div class="clear_floats"></div>
+      </div>
       <h2>Advanced</h2>
       <p>The following optional URL parameters are available:</p>
       <table>

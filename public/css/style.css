@@ -105,6 +105,28 @@ sup {
     bottom: 0.5ex;
 }
 
+#warning_standout {
+    border: 1px solid grey;
+    padding: 6px;
+}
+
+#warning_image {
+    width: 29px;
+    height: 27px;
+}
+
+#warning_image_container {
+    float: left;
+}
+
+#warning_text_container {
+    margin-left: 38px;
+}
+
+.clear_floats {
+    clear: both;
+}
+
 .footnote {
     font-size: 0.875em;
 }
