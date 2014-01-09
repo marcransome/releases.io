@@ -34,7 +34,7 @@ configure :production do
   require 'newrelic_rpm'
 end
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.5.0"
 
 # serve static site content for default route
 get '/' do
