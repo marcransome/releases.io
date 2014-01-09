@@ -66,6 +66,11 @@ get '/:user/:repo/?:releases?/?:tag?/:tag_name/?' do
   haml :index, :ugly => params[:pretty].eql?("true") ? false : true
 end
 
+# static sitemap
+get '/sitemap.xml' do
+  send_file(File.join(settings.public_folder, 'sitemap.xml'))
+end
+
 # serve custom error page for 404s
 not_found do
   send_file(File.join(settings.public_folder, '404.html'), {:status => 404})
