@@ -24,7 +24,7 @@
       <p></p>
       <h2>Usage</h2>
       <p>To use <code>releases.io</code>, construct a URL with the following format:
-      <pre>https://releases.io/:user/:repo/:tag</pre>
+      <pre>http://releases.io/:user/:repo/:tag</pre>
       <p>Specify each of these parameters in the URL:</p>
       <table>
         <tr>
@@ -46,38 +46,29 @@
       </table>
       <p>If a tag has no release notes associated with it (or the repository name or username is misspelled or non-existent) a <code>404</code> response code will be returned.</p>
       <p>If you want to display only the most recent release notes for your project, rather than those for a specific version, just omit the tag parameter from the URL:</p>
-      <pre>https://releases.io/:user/:repo</pre>
+      <pre>http://releases.io/:user/:repo</pre>
       <p>Once you have a working link, simply add it to your software updater. For example, if you're using <a href="http://sparkle.andymatuschak.org">Sparkle</a>, add the URL to your appcast file:</p>
       <pre>...
 &lt;sparkle:releaseNotesLink&gt;
-  https://releases.io/:user/:repo/:tag
+  http://releases.io/:user/:repo/:tag
 &lt;&#47;sparkle:releaseNotesLink&gt;
 ...</pre>
-      <p>Both HTTP and HTTPS protocols are supported for all <code>releases.io</code> links. If you'd like to have more control over how your release notes look, refer to the <a href="#custom_styles">Custom Styles</a> section.</p>
+      <p>If you'd like to have more control over how your release notes look, refer to the <a href="#custom_styles">Custom Styles</a> section.</p>
       <h2>GitHub Compatibility</h2>
       <p>In addition to the short-form URL described above, a longer variation is available for compatibility with GitHub's naming scheme. This makes it incredibly easy to turn a GitHub Releases link into a valid <code>releases.io</code> link by replacing just the top-level domain name:</p>
       <pre>https://github.com/yui/pure/releases/tag/v0.3.0</pre>
       Becomes:
-      <pre>https://<span class="text_highlight">releases.io</span>/yui/pure/releases/tag/v0.3.0</pre>
+      <pre>http://<span class="text_highlight">releases.io</span>/yui/pure/releases/tag/v0.3.0</pre>
+      <p><strong>Note:</strong> the <code>HTTPS</code> protocol is not currently supported. All links should start with <code>http://</code>.</p>
       <h2 id="custom_styles">Custom Styles</h2>
       <p>An external stylesheet can be used to control the appearance of your release notes by specifying a <code>css</code> URL parameter:
-      <pre>https://releases.io/:user/:repo/:tag<span class="text_highlight">?css=http://yourhost.com/style.css</span></pre> 
+      <pre>http://releases.io/:user/:repo/:tag<span class="text_highlight">?css=http://yourhost.com/style.css</span></pre> 
       <p>If you're only concerned with adjusting the base font style, you can use one of two basic pre-defined stylesheets:</p>
       <ul>
         <li><code>css=sans</code> - for standard sans serif fonts</li>
         <li><code>css=serif</code> - for standard serif fonts</li>
       </ul>
       <p>Using an external stylesheet adds a small overhead to the page load time.</p>
-      <div id="warning_standout">
-        <div id="warning_image_container">
-          <img id="warning_image" src="/images/warning.png" alt="warning">
-        </div>
-        <div id="warning_text_container">
-          <strong>Warning:</strong> you should avoid specifying a stylesheet that uses <code>http</code> if your base URL uses <code>https</code> &mdash; the browser or web component responsible for rendering your release notes may refuse to load the stylesheet.
-          <p>Instead, use <code>http</code> for the base URL (i.e. <code>http://releases.io/..</code>), or specify a stylesheet that can be accessed via <code>https</code>.</p>
-        </div>
-        <div class="clear_floats"></div>
-      </div>
       <h2>Advanced</h2>
       <p>The following optional URL parameters are available:</p>
       <table>
