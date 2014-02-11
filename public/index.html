@@ -44,7 +44,7 @@
           <td>The git tag associated with the release notes (e.g. v0.3.0 or 4.1.0).</td>
         </tr>
       </table>
-      <p>If a tag has no release notes associated with it (or the repository name or username is misspelled or non-existent) a <code>404</code> response code will be returned.</p>
+      <p>If a tag has no release notes associated with it (or the repository name/username is misspelled or non-existent) a <code>404</code> response code will be returned.</p>
       <p>If you want to display only the most recent release notes for your project, rather than those for a specific version, just omit the tag parameter from the URL:</p>
       <pre>http://releases.io/:user/:repo</pre>
       <p>Once you have a working link, simply add it to your software updater. For example, if you're using <a href="http://sparkle.andymatuschak.org">Sparkle</a>, add the URL to your appcast file:</p>
