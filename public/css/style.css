@@ -74,8 +74,28 @@ pre code {
     padding: 0;
 }
 
-#error_text {
+#error_container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: table;
+}
+
+p.error {
+    display: table-cell;
+    padding: 20px 0 40px 0;
+    vertical-align: middle;
     text-align: center;
+}
+
+#error_heading {
+    display: block;
+    font-size: 2em;
+    margin: 0.313em 0;
+    line-height: 1em;
+    font-weight: 400;
 }
 
 #attribution {
