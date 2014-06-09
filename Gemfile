@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.2'
 gem 'sinatra', '>=1.4.3'
 gem 'thin'
 gem 'haml'

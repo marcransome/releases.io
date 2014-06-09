@@ -6,11 +6,11 @@ GEM
     haml (4.0.5)
       tilt
     json (1.8.1)
-    newrelic_rpm (3.7.3.204)
+    newrelic_rpm (3.8.1.221)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
-    redcarpet (3.1.1)
+    redcarpet (3.1.2)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
