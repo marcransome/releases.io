@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+echo "Enter GitHub auth token: "
+read TOKEN
+export GITHUB_AUTH_TOKEN=$TOKEN
 shotgun releases.rb
