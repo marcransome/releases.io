@@ -55,7 +55,7 @@ def extract_latest(json)
   comparator = Time.utc(1970, "jan", 1)
 
   json.each do |release|
-    release_date = Time.parse(release["published_at"])
+    release_date = Time.parse(release["created_at"])
     if release_date > comparator
       comparator = release_date
       latest_release = release
