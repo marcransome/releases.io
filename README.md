@@ -22,4 +22,4 @@ If you would like to contribute to the project, start by [forking the repository
 You can also contribute to the ongoing costs involved in providing the service by making a small cash donation via [Gratipay](https://gratipay.com/marcransome/).
 
 ## Contact
-Email me at [marc.ransome@fidgetbox.co.uk](mailto:marc.ransome@fidgetbox.co.uk) or tweet [@marcransome](http://www.twitter.com/marcransome).
+Email me at [marc.ransome@fidgetbox.co.uk](mailto:marc.ransome@fidgetbox.co.uk) or [create an issue](https://github.com/marcransome/releases.io/issues).
